@@ -339,7 +339,6 @@ class SawyerPushAndReachXYZEnv(MultitaskEnv, SawyerXYZEnv):
             ord=self.norm_order,
             axis=1,
         )
-
         if self.reward_type == 'hand_distance':
             r = -hand_distances
         elif self.reward_type == 'hand_success':
@@ -366,6 +365,10 @@ class SawyerPushAndReachXYZEnv(MultitaskEnv, SawyerXYZEnv):
             r = -touch_distances
         elif self.reward_type == 'touch_success':
             r = -(touch_distances > self.indicator_threshold).astype(float)
+        elif self.reward_type == 'hand_and_puck_distance_and_puck_success':
+            r = -(puck_distances + hand_distances) - 100 * (puck_distances > self.indicator_threshold).astype(float)
+        elif self.reward_type == 'hand_touch_puck_distance':
+            r = -(touch_distances + puck_distances)
         else:
             raise NotImplementedError("Invalid/no reward type.")
         return r

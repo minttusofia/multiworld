@@ -8,6 +8,7 @@ LOGGER = logging.getLogger(__name__)
 
 _REGISTERED = False
 
+print("\n\n\n\n\nin avi multiworld\n\n\n\n\n")
 
 def register_goal_example_envs():
 
@@ -59,6 +60,107 @@ def register_goal_example_envs():
         )
 
     register(
+        id='BaseSawyerPushForwardHandTouchPuckDistEnv-v0',
+        entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        kwargs={
+            'fix_goal': True,
+            'fixed_goal': (0.0, 0.6, 0.05, 0.0, 0.75),
+            'indicator_threshold': 0.03,
+            'reward_type': 'hand_touch_puck_distance',
+            'puck_radius': 0.03,
+            'reset_free': False,
+            'xml_path': 'sawyer_xyz/sawyer_push_mug_to_coaster.xml',
+            'hide_goal_markers': True,
+            'puck_random_init': True,
+        }
+        )
+
+    register(
+        id='BaseRecoloredSawyerPushForwardHandTouchPuckDistEnv-v0',
+        entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        kwargs={
+            'fix_goal': True,
+            'fixed_goal': (0.0, 0.6, 0.05, 0.0, 0.75),
+            'indicator_threshold': 0.03,
+            'reward_type': 'hand_touch_puck_distance',
+            'puck_radius': 0.03,
+            'reset_free': False,
+            'xml_path': 'sawyer_xyz/sawyer_recolored_push_mug_to_coaster.xml',
+            'hide_goal_markers': True,
+            'puck_random_init': True,
+        }
+        )
+
+    register(
+        id='BaseSawyerPushForwardHandPuckDistEnv-v0',
+        entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        kwargs={
+            'fix_goal': True,
+            'fixed_goal': (0.0, 0.6, 0.05, 0.0, 0.75),
+            'indicator_threshold': 0.03,
+            'reward_type': 'hand_and_puck_distance',
+            'puck_radius': 0.03,
+            'reset_free': False,
+            'xml_path': 'sawyer_xyz/sawyer_push_mug_to_coaster.xml',
+            'hide_goal_markers': True,
+            'puck_random_init': True,
+        }
+        )
+
+    register(
+        id='BaseSawyerPushForwardPuckDistEnv-v0',
+        entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        kwargs={
+            'fix_goal': True,
+            'fixed_goal': (0.0, 0.6, 0.05, 0.0, 0.75),
+            'indicator_threshold': 0.03,
+            'reward_type': 'puck_distance',
+            'puck_radius': 0.03,
+            'reset_free': False,
+            'xml_path': 'sawyer_xyz/sawyer_push_mug_to_coaster.xml',
+            'hide_goal_markers': True,
+            'puck_random_init': True,
+        }
+        )
+
+
+    register(
+        id='BaseSawyerPushForwardHandPuckDistPuckSuccessEnv-v0',
+        entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        kwargs={
+            'fix_goal': True,
+            'fixed_goal': (0.0, 0.6, 0.05, 0.0, 0.75),
+            'indicator_threshold': 0.03,
+            'reward_type': 'hand_and_puck_distance_and_puck_success',
+            'puck_radius': 0.03,
+            'reset_free': False,
+            'xml_path': 'sawyer_xyz/sawyer_push_mug_to_coaster.xml',
+            'hide_goal_markers': True,
+            'puck_random_init': True,
+        }
+        )
+
+    register(
         id='BaseSawyerPushForwardEnv-v0',
         entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
         tags={
@@ -73,6 +175,27 @@ def register_goal_example_envs():
             'puck_radius': 0.03,
             'reset_free': False,
             'xml_path': 'sawyer_xyz/sawyer_push_mug_to_coaster.xml',
+            'hide_goal_markers': True,
+            'puck_random_init': True,
+        }
+        )
+
+
+    register(
+        id='BaseRecoloredSawyerPushForwardEnv-v0',
+        entry_point='multiworld.envs.mujoco.sawyer_xyz.sawyer_push_and_reach_env:SawyerPushAndReachTargetObjectXYEnv',
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        kwargs={
+            'fix_goal': True,
+            'fixed_goal': (0.0, 0.6, 0.05, 0.0, 0.75),
+            'indicator_threshold': 0.03,
+            'reward_type': 'puck_success_positive',
+            'puck_radius': 0.03,
+            'reset_free': False,
+            'xml_path': 'sawyer_xyz/sawyer_recolored_push_mug_to_coaster.xml',
             'hide_goal_markers': True,
             'puck_random_init': True,
         }
@@ -154,6 +277,52 @@ def register_goal_example_envs():
         )
 
     register(
+        id='Image48SawyerPushForwardHandPuckDistEnv-v0',
+        entry_point=create_image_48_sawyer_push_forward_hand_puck_dist_v0,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'karl'
+        },
+        )
+
+    register(
+        id='Image48SawyerPushForwardPuckDistEnv-v0',
+        entry_point=create_image_48_sawyer_push_forward_puck_dist_v0,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'karl'
+        },
+        )
+
+    register(
+        id='Image48SawyerPushForwardHandPuckDistPuckSuccessEnv-v0',
+        entry_point=create_image_48_sawyer_push_forward_hand_puck_dist_puck_success_v0,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'karl'
+        },
+        )
+
+    register(
+        id='Image48SawyerPushForwardHandTouchPuckDistEnv-v0',
+        entry_point=create_image_48_sawyer_push_forward_hand_touch_puck_dist_v0,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'karl'
+        },
+        )
+    
+    register(
+        id='Image48RecoloredSawyerPushForwardHandTouchPuckDistEnv-v0',
+        entry_point=create_image_48_recolored_sawyer_push_forward_hand_touch_puck_dist_v0,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'karl'
+        },
+        )
+
+
+    register(
         id='Image48SawyerPushForwardEnv-v0',
         entry_point=create_image_48_sawyer_push_forward_v0,
         tags={
@@ -161,6 +330,16 @@ def register_goal_example_envs():
             'author': 'avi'
         },
         )
+
+    register(
+        id='Image48RecoloredSawyerPushForwardEnv-v0',
+        entry_point=create_image_48_recolored_sawyer_push_forward_v0,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'avi'
+        },
+        )
+
 
     register(
         id='StateSawyerPushSidewaysEnv-v0',
@@ -266,6 +445,78 @@ def create_state_sawyer_push_forward_v0():
     from multiworld.core.flat_goal_env import FlatGoalEnv
     wrapped_env = gym.make('BaseSawyerPushForwardEnv-v0')
     return FlatGoalEnv(wrapped_env, obs_keys=['observation'])
+
+def create_image_48_recolored_sawyer_push_forward_hand_touch_puck_dist_v0():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseRecoloredSawyerPushForwardHandTouchPuckDistEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    return FlatGoalEnv(image_env, obs_keys=['image_observation'])
+
+def create_image_48_sawyer_push_forward_hand_touch_puck_dist_v0():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseSawyerPushForwardHandTouchPuckDistEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    return FlatGoalEnv(image_env, obs_keys=['image_observation'])
+
+def create_image_48_sawyer_push_forward_hand_puck_dist_v0():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseSawyerPushForwardHandPuckDistEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    return FlatGoalEnv(image_env, obs_keys=['image_observation'])
+
+def create_image_48_sawyer_push_forward_puck_dist_v0():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseSawyerPushForwardPuckDistEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    return FlatGoalEnv(image_env, obs_keys=['image_observation'])
+
+def create_image_48_sawyer_push_forward_hand_puck_dist_puck_success_v0():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseSawyerPushForwardHandPuckDistPuckSuccessEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    return FlatGoalEnv(image_env, obs_keys=['image_observation'])
+
+def create_image_48_recolored_sawyer_push_forward_v0():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseRecoloredSawyerPushForwardEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    return FlatGoalEnv(image_env, obs_keys=['image_observation'])
 
 def create_image_48_sawyer_push_forward_v0():
     from multiworld.core.flat_goal_env import FlatGoalEnv
