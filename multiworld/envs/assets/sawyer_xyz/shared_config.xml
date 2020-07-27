@@ -40,6 +40,7 @@ Usage:
         <material name="tennis_green" shininess="0.3" rgba="0.9 0.9 0.9 1" specular="1" texture="tennis_green"/>
         <material name="wood_material" rgba="1 1 1 1" shininess="0.1" specular="0.4" texture="wood_texture" />
         <material name="table_material" rgba="1 1 1 1" shininess="0.1" specular="0.4" texture="table_texture" />
+        <material name="paper_material" rgba="1 1 1 1" shininess="0.1" specular="0.4" />
     </asset>
 
     <visual>
