@@ -29,7 +29,8 @@ class SawyerPushAndReachXYZEnv(MultitaskEnv, SawyerXYZEnv):
 
             hide_goal_markers=False,
             init_puck_z=0.02,
-            init_hand_xyz=(0, 0.4, 0.07),
+#            init_hand_xyz=(0, 0.4, 0.07),
+            init_hand_xyz=(0, 0.2, 0.07),
 
             reset_free=False,
             xml_path='sawyer_xyz/sawyer_push_puck.xml',
