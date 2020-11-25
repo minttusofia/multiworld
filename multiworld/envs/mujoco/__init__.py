@@ -11,6 +11,24 @@ _REGISTERED = False
 print("\n\n\n\n\nin avi multiworld\n\n\n\n\n")
 
 def register_goal_example_envs():
+
+    register(id="Image48MetaworldDrawerOpenDense-v0",
+            entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenEnv",
+            kwargs={'sparse_reward': False})
+
+    register(id="Image48MetaworldDrawerOpenSparse-v0",
+            entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenEnv",
+            kwargs={'sparse_reward': True})
+
+    register(id="Image48MetaworldDrawerOpenSparse2D-v0",
+            entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenEnv",
+            kwargs={'sparse_reward': True,
+                    'two_dimensional': True})
+
+    register(id="Image48MetaworldDrawerCloseSparse-v0",
+            entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenEnv",
+            kwargs={'env_name': "DrawerClose", 'sparse_reward': True})
+
     register(id="AcrobotContinuous-v1",
             entry_point="multiworld.envs.mujoco.acrobot_continuous:AcrobotContinuousEnv")
 
