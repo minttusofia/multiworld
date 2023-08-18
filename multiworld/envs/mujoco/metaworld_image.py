@@ -10,6 +10,7 @@ import threading
 from mujoco_py import MjRenderContext
 import metaworld.envs.mujoco.sawyer_xyz as sawyer
 
+
 class MetaWorldDrawerOpenEnv(ProxyEnv):
     LOCK = threading.Lock()
 
@@ -94,3 +95,12 @@ class MetaWorldDrawerOpenEnv(ProxyEnv):
         #return {'image': image, 'state': state}
 #        return {'image': image.reshape(-1)}
         return image.reshape(-1)
+
+
+class MetaWorldDrawerOpenMirrorEnv(MetaWorldDrawerOpenEnv):
+    def _get_obs(self, state):
+        flat_obs = super()._get_obs(state)
+        flat_obs = np.reshape(flat_obs, self._size + (3,))
+        flat_obs = flat_obs[:, ::-1]
+        flat_obs = flat_obs.flatten()
+        return flat_obs

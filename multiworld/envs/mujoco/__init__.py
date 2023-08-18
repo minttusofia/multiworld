@@ -24,6 +24,10 @@ def register_goal_example_envs():
             entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenEnv",
             kwargs={'sparse_reward': True,
                     'two_dimensional': True})
+    register(id="Image48MetaworldDrawerOpenSparse2D-v1",
+            entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenMirrorEnv",
+            kwargs={'sparse_reward': True,
+                    'two_dimensional': True})
 
     register(id="Image48MetaworldDrawerCloseSparse-v0",
             entry_point="multiworld.envs.mujoco.metaworld_image:MetaWorldDrawerOpenEnv",
@@ -430,6 +434,14 @@ def register_goal_example_envs():
         },
         )
     register(
+        id='Image48HumanLikeSawyerPushForwardEnv-v1',
+        entry_point=create_image_48_human_like_sawyer_push_forward_v1,
+        tags={
+            'git-commit-hash': '0de5200',
+            'author': 'minttu'
+        },
+        )
+    register(
         id='Image48SawyerPushForwardEnv-v0',
         entry_point=create_image_48_sawyer_push_forward_v0,
         tags={
@@ -660,6 +672,20 @@ def create_image_48_human_like_sawyer_push_forward_v0():
         normalize=True,
         )
     return FlatGoalEnv(image_env, obs_keys=['image_observation'])
+
+def create_image_48_human_like_sawyer_push_forward_v1():
+    from multiworld.core.flat_goal_env import FlatGoalEnv
+    from multiworld.core.image_env import ImageEnv
+    from multiworld.core.flip_env import FlipEnv
+    from multiworld.envs.mujoco.cameras import sawyer_pusher_camera_upright_v2
+    image_env = ImageEnv(
+        wrapped_env=gym.make('BaseHumanLikeSawyerPushForwardEnv-v0'),
+        imsize=48,
+        init_camera=sawyer_pusher_camera_upright_v2,
+        normalize=True,
+        )
+    goal_env = FlatGoalEnv(image_env, obs_keys=['image_observation'])
+    return FlipEnv(goal_env)
 
 def create_image_48_sawyer_push_forward_v0():
     from multiworld.core.flat_goal_env import FlatGoalEnv
